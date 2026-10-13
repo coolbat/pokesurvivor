@@ -24,6 +24,16 @@ export default function GuidePage() {
           the game is already on the site.
         </p>
       </header>
+      <section className="box">
+        <h2>Pick a route</h2>
+        <ul className="menu">
+          <li><Link href="/quiz/">Starter quiz<small>Same eight questions as the game. The result has a link you can share.</small></Link></li>
+          <li><Link href="/best-starter/">Best starter<small>Burning shot, piercing shot, or melee. Refuse the quiz if the move is wrong.</small></Link></li>
+          <li><Link href="/first-upgrades/">First upgrades<small>How to spend the starting 500 coins, and when the 1,500-coin second move is worth it.</small></Link></li>
+          <li><Link href="/move-evolutions/">Move evolutions<small>Which stat card unlocks each gold evolution.</small></Link></li>
+          <li><Link href="/fifteen-minute-run/">15-minute run<small>The five bosses, healers, and when a rift is worth entering.</small></Link></li>
+        </ul>
+      </section>
 
       <section className="box">
         <h2>Controls</h2>

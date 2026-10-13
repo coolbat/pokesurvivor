@@ -172,6 +172,39 @@ export function traitNames(ids: string[] = []): string {
   return ids.map((id) => TRAIT[id]?.name || id).join(' + ')
 }
 
+const OPENING: Record<string, string> = {
+  melee: 'The swing knocks enemies back, and while it is the active move you take 25% less damage. Stand in the pack.',
+  projectile: 'The shot aims for you. Keep a step of distance and walk off ground marks.',
+  beam: 'It cuts a straight line. Face the boss and sidestep the telegraphs.',
+  boomerang: 'It hits on the way out and on the way back. Circle the horde instead of running in a straight line.',
+  nova: 'The ring is wide and slow. Use it when enemies are already on you.',
+  aura: 'The field keeps ticking while you stand in the group. Extra HP makes that safer.',
+  orbit: 'The orbs cover you without aiming. Keep moving and let them sweep.',
+  dash: 'You do not take damage during the dash. Use it to leave a swarm.',
+  trail: 'The path you walk keeps dealing damage. Kite, and do not double back into your own line unless you mean to.',
+  cone: 'It is short. Let the horde come to you, then step out.',
+  chain: 'It jumps to nearby targets. Best when the pack is bunched.',
+  mine: 'Drop them in a corridor or a rift doorway, then pull the wave across.',
+  meteor: 'The shadow shows the landing. You can walk off your own meteors.',
+  turret: 'It keeps shooting after you leave the spot. Drop it and move.',
+}
+
+/** A short, specific note for starters and rift legendaries. Other Pokémon stay on the shared template. */
+export function playNote(mon: Mon): string | null {
+  if (mon.leg) {
+    return `${mon.name} does not join the starter board and does not roll as a timed boss. A distortion rift can open from 1:15, and this Pokémon waits in an arena based on one of its types (${typeLabel(mon.types)}). The fight lasts two minutes. A win pays coins, three normal tickets, and two ×10 tickets. A loss or a timeout sends you back at 30% HP with nothing. Go in after the 3:00 boss, with HP to spare. A portal at 1:15 is a common wipe.`
+  }
+  if (!mon.starter) return null
+  const move = getMove(mon.start)
+  const evo = move ? evoName(move) : undefined
+  const need = move?.evo ? needName(move.evo.needs) : undefined
+  const evolve = evo && need
+    ? ` At level 5 it can become ${evo} if you have taken ${need} at any point in that same run.`
+    : ''
+  const how = move ? OPENING[move.kind] || '' : ''
+  return `${mon.name} starts the first run with ${moveName(mon.start)}.${evolve} ${how} The combat stats for that run are HP ${mon.hp} and speed ${mon.spd}. The personality quiz can be refused if you want this partner instead of the one it suggests.`
+}
+
 export function advice(mon: Mon): string {
   const types = typeLabel(mon.types)
   const region = genName(mon.gen)

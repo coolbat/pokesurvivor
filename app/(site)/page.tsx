@@ -6,6 +6,9 @@ import { counts, getByDex } from '@/lib/game'
 
 const GUIDES = [
   { href: '/guide/', title: 'How to play', text: 'Controls, a full run, level-ups, and what to grab on the map.' },
+  { href: '/quiz/', title: 'Starter quiz', text: 'The same eight questions as the game, with a link you can share.' },
+  { href: '/best-starter/', title: 'Best starter', text: 'Melee, a burning shot, or a piercing shot. The quiz can be refused.' },
+  { href: '/fifteen-minute-run/', title: '15-minute run', text: 'Bosses at 3, 6, 9, 12, and 15 minutes, and when to enter a rift.' },
   { href: '/starters/', title: 'Starters', text: 'All 29 partners from the personality quiz, with their first move.' },
   { href: '/pokedex/', title: 'Pokédex', text: 'Every Pokémon in the game, with stats and a learnset.' },
   { href: '/moves/', title: 'Moves', text: '64 moves, level ladders, and the gold evolution card.' },
@@ -67,7 +70,7 @@ export default function HomePage() {
       </section>
 
       <section className="grid-cards">
-        <Link className="card" href="/starters/"><b>Best first partner</b><span>The quiz suggests one of 29 starters. You can ignore it and pick Charmander, Bulbasaur, Squirtle, or any later-region starter.</span></Link>
+        <Link className="card" href="/best-starter/"><b>Best first partner</b><span>Charmander, Bulbasaur, or Squirtle. The quiz can be refused, and later regions repeat the same three jobs.</span></Link>
         <Link className="card" href="/items/"><b>One item per run</b><span>Leftovers, Choice Band, Focus Sash, Life Orb, and eight more. Bosses always drop one.</span></Link>
         <Link className="card" href="/upgrades/"><b>PokéCoins</b><span>Permanent upgrades belong to each Pokémon, not the account. A new save starts with 500 coins.</span></Link>
         <Link className="card" href="/co-op/"><b>Co-op up to 4</b><span>Friends by nickname, a shared clock, and a revive if someone goes down beside you.</span></Link>

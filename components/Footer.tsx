@@ -20,6 +20,7 @@ export function Footer() {
       <p className="footer-links">
         <Link href="/about/">About</Link>
         <Link href="/guide/">PokéSurvivor guide</Link>
+        <Link href="/quiz/">Starter quiz</Link>
         <Link href="/play/">Play PokéSurvivor</Link>
         <a href={GAME}>Official game</a>
       </p>

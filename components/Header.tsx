@@ -3,12 +3,17 @@ import Link from 'next/link'
 const LINKS = [
   { href: '/play/', label: 'Play' },
   { href: '/guide/', label: 'Guide' },
+  { href: '/quiz/', label: 'Quiz' },
   { href: '/pokedex/', label: 'Pokédex' },
   { href: '/moves/', label: 'Moves' },
   { href: '/types/', label: 'Types' },
 ]
 
 const MORE = [
+  { href: '/best-starter/', label: 'Best starter' },
+  { href: '/first-upgrades/', label: 'First upgrades' },
+  { href: '/move-evolutions/', label: 'Move evolutions' },
+  { href: '/fifteen-minute-run/', label: '15-minute run' },
   { href: '/starters/', label: 'Starters' },
   { href: '/legendaries/', label: 'Legendaries' },
   { href: '/bosses/', label: 'Bosses' },

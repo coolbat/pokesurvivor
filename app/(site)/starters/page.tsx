@@ -37,6 +37,8 @@ export default function StartersPage() {
           whose two traits fit best. The first trait on that Pokémon counts double. If several
           starters tie, the game picks one of them. You can refuse and choose any of the {list.length}{' '}
           partners yourself: the starter trio of each region, plus Psyduck and Slowpoke.
+          Take the <Link href="/quiz/">same quiz here</Link> if you want a result you can share, or
+          read <Link href="/best-starter/">which opening move to keep</Link> if you plan to refuse it.
         </p>
       </header>
       <section className="box">

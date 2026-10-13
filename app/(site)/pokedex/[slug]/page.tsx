@@ -6,7 +6,7 @@ import { Sprite } from '@/components/Sprite'
 import { TypePill } from '@/components/TypePill'
 import { genName, typeLabel } from '@/lib/constants'
 import {
-  advice, allPokemon, behaviorLine, defenseChart, evoName,
+  advice, allPokemon, behaviorLine, defenseChart, evoName, playNote,
   getMove, getPokemon, learnset, moveBlurb, moveName, rarityName, related, traitNames,
 } from '@/lib/game'
 import { pageMeta } from '@/lib/seo'
@@ -66,7 +66,7 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
         <div className="stat"><span>Speed</span><span className="bar"><i style={{ width: `${(p.spd / 162) * 100}%` }} /></span><b>{p.spd}</b></div>
         <div className="stat"><span>Attack</span><span className="bar"><i style={{ width: `${(p.atk / 1.7) * 100}%` }} /></span><b>×{p.atk}</b></div>
         <p className="note">BST {p.bst}. These bars are the in-game combat stats, scaled against the highest value in the current roster.</p>
-        <p>{advice(p)}</p>
+        <p>{playNote(p) || advice(p)}</p>
         {p.traits && (
           <p>
             Personality match: <b>{traitNames(p.traits)}</b>. The quiz weights the first trait twice

@@ -66,6 +66,7 @@ export default function UpgradesPage() {
       </section>
       <section className="box">
         <h2>Suggested order</h2>
+        <p>The coin-by-coin version, including what fits in the starting 500, is the <Link href="/first-upgrades/">first upgrades</Link> page.</p>
         <ol className="clean">
           <li>Vitality twice and Strength twice, so the first boss stops ending the run.</li>
           <li>Magnet once, so experience gems stop getting left behind while you kite.</li>

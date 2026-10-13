@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Pixelify_Sans, Source_Sans_3 } from 'next/font/google'
+import Script from 'next/script'
+import { BING_SITE_VERIFICATION, GA_MEASUREMENT_ID, GOOGLE_SITE_VERIFICATION } from '@/lib/analytics'
 import { SITE, UPDATED } from '@/lib/constants'
 import './globals.css'
 
@@ -28,6 +30,10 @@ export const metadata: Metadata = {
   applicationName: 'PokéSurvivor Guide',
   authors: [{ name: 'PokéSurvivor Guide' }],
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
+  verification: {
+    ...(GOOGLE_SITE_VERIFICATION ? { google: GOOGLE_SITE_VERIFICATION } : {}),
+    ...(BING_SITE_VERIFICATION ? { other: { 'msvalidate.01': BING_SITE_VERIFICATION } } : {}),
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -61,6 +67,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a className="skip" href="#content">Skip to content</a>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+            <Script id="ga4" strategy="afterInteractive">{`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}');
+            `}</Script>
+          </>
+        )}
         {children}
       </body>
     </html>
