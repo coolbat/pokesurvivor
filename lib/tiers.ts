@@ -1,3 +1,8 @@
+/** Stat board for /tier-list/. S is the two extremes. A is the named 105–107 band.
+ *  Everyone else is B, sorted by speed on the page. /best-starter/ keeps its own list. */
+export const STAT_S = ['froakie', 'slowpoke'] as const
+export const STAT_A = ['charmander', 'cyndaquil', 'treecko', 'sprigatito', 'litten', 'scorbunny'] as const
+
 /** Editorial bands for a first clear. One move fires at a time, so the split is
  *  "does this let you kite" versus "does this make you stand in the pack". */
 

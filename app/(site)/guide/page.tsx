@@ -32,6 +32,7 @@ export default function GuidePage() {
           <li><Link href="/first-upgrades/">First upgrades<small>How to spend the starting 500 coins, and when the 1,500-coin second move is worth it.</small></Link></li>
           <li><Link href="/move-evolutions/">Move evolutions<small>Which stat card unlocks each gold evolution.</small></Link></li>
           <li><Link href="/fifteen-minute-run/">15-minute run<small>The five bosses, healers, and when a rift is worth entering.</small></Link></li>
+          <li><Link href="/tier-list/">Tier list<small>Starter HP and speed, the six opening moves, shiny odds, and when a rift is worth entering.</small></Link></li>
         </ul>
       </section>
 
@@ -113,6 +114,15 @@ export default function GuidePage() {
           Guest progress stays in this browser. A cloud account follows you to another computer and
           merges saves: collections union, upgrades keep the higher level, and coins follow the newer
           save. Playing two sessions at once still merges. It does not delete a Pokémon you already own.
+        </p>
+      </section>
+
+      <section className="box">
+        <h2>PokéSurvivor tier list</h2>
+        <p>
+          The ranks for starter HP and speed, the six opening moves, shiny odds, rift timing, and
+          co-op are on the <Link href="/tier-list/">PokéSurvivor tier list</Link>. Which opening
+          move to learn the game with stays on the <Link href="/best-starter/">best starter</Link> page.
         </p>
       </section>
 

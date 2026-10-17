@@ -54,8 +54,9 @@ export default function MovesPage() {
         <p>
           The tables list cooldown, base damage, and the stat card. Open a move for the level ladder.
           The <Link href="/types/">type chart</Link> decides whether that damage is yellow or grey.
-          Starter jobs are on the <Link href="/best-starter/">best starter</Link> page, and the same
-          bands are on the <Link href="/tier-list/">tier list</Link>.
+          Which of the six opening moves to learn the game with is on the{' '}
+          <Link href="/best-starter/">best starter</Link> page. The stat ranking is the{' '}
+          <Link href="/tier-list/">tier list</Link>.
         </p>
       </section>
       <section className="box" id="best-moves">

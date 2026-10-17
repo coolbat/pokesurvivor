@@ -8,7 +8,7 @@ const GUIDES = [
   { href: '/guide/', title: 'How to play', text: 'Controls, a full run, level-ups, and what to grab on the map.' },
   { href: '/quiz/', title: 'Starter quiz', text: 'The same eight questions as the game, with a link you can share.' },
   { href: '/best-starter/', title: 'Best starter', text: 'S-tier Charmander, Bulbasaur, or Squirtle. The quiz can be refused.' },
-  { href: '/tier-list/', title: 'Tier list', text: 'S/A/B starters, the moves to take, and what a shiny is worth.' },
+  { href: '/tier-list/', title: 'Tier list', text: 'All 29 starters by HP and speed, the six opening moves, and shiny odds.' },
   { href: '/fifteen-minute-run/', title: '15-minute run', text: 'Bosses at 3, 6, 9, 12, and 15 minutes, and when to enter a rift.' },
   { href: '/starters/', title: 'Starters', text: 'All 29 partners from the personality quiz, with their first move.' },
   { href: '/pokedex/', title: 'Pokédex', text: 'Every Pokémon in the game, with stats and a learnset.' },

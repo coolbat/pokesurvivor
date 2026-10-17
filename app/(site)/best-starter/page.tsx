@@ -74,7 +74,7 @@ export default function BestStarterPage() {
           itself and burns, and it becomes Fire Blast after a Power card. Take{' '}
           <Link href="/pokedex/bulbasaur/">Bulbasaur</Link> if you want to stand in the pack.
           Take <Link href="/pokedex/squirtle/">Squirtle</Link> if you want pierce without the burn.
-          The same three jobs, sorted, are the <Link href="/tier-list/">tier list</Link>.
+          HP and speed for all 29, which is a different ranking, are on the <Link href="/tier-list/">tier list</Link>.
         </p>
       </section>
       <section className="box">
