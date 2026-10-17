@@ -70,6 +70,7 @@ button, input, select { font: inherit; color: inherit; }
 .more-menu a:hover { background: rgba(255,255,255,.1); }
 
 .wrap { width: min(1080px, calc(100% - 28px)); margin: 0 auto; padding: 22px 0 48px; display: grid; gap: 16px; }
+.wrap > * { min-width: 0; }
 .wrap h1, .wrap h2, .wrap h3, .box h1, .box h2, .box h3 { font-family: var(--display); }
 .wrap h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.05; margin: 0 0 8px; color: var(--gold); text-shadow: 3px 3px 0 #a55f00, 5px 5px 0 var(--shadow); }
 .wrap h2 { font-size: 28px; line-height: 1.15; margin: 0 0 8px; }
@@ -155,7 +156,19 @@ label { display: grid; gap: 4px; font-size: 14px; color: var(--muted); }
 table { width: 100%; border-collapse: collapse; font-size: 15px; }
 th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid rgba(255,255,255,.12); vertical-align: top; }
 th { color: var(--gold); }
-.scroll { overflow-x: auto; }
+th .sort {
+  background: none; border: 0; padding: 0; color: inherit; font: inherit; font-weight: 700;
+  cursor: pointer; text-align: left;
+}
+th .sort[data-dir="asc"]::after { content: " ↑"; }
+th .sort[data-dir="desc"]::after { content: " ↓"; }
+.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.scroll { overflow-x: auto; max-width: 100%; }
+.calc { display: grid; gap: 10px; max-width: 420px; margin: 12px 0; }
+.calc fieldset { border: 2px solid var(--edge-in); border-radius: 8px; margin: 0; padding: 8px 12px; }
+.calc legend { color: var(--gold); padding: 0 6px; }
+.check { display: flex; gap: 8px; align-items: center; color: var(--ink); margin: 4px 0; }
+.check input { width: auto; }
 
 .faq details { background: rgba(0,0,0,.16); border-radius: 8px; padding: 8px 12px; margin-top: 8px; }
 .faq summary { cursor: pointer; font-weight: 700; }

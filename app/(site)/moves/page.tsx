@@ -1,19 +1,35 @@
 import Link from 'next/link'
 import { Crumbs } from '@/components/Crumbs'
-import { TypePill } from '@/components/TypePill'
-import { TYPES, TYPE_NAME, UPDATED } from '@/lib/constants'
-import { allMoves, evoName, moveName } from '@/lib/game'
+import { MovePicks } from '@/components/MovePicks'
+import { MoveTables, type MoveGroup } from '@/components/MoveTables'
+import { KIND_NAME, TYPES, TYPE_NAME, UPDATED } from '@/lib/constants'
+import { allMoves, evoName, moveName, needName } from '@/lib/game'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata = pageMeta({
-  title: `PokéSurvivor Moves List & Evolutions (${UPDATED})`,
+  title: `PokéSurvivor Moves List, Evolutions & Best Picks (${UPDATED})`,
   description:
-    'All PokéSurvivor moves: projectiles, melee, beams, orbs, novas, auras, and the gold evolution card at level 5. See cooldown, damage, and which stat each move needs.',
+    'All PokéSurvivor moves with cooldown, base damage, and the stat card each evolution needs, plus which moves to pick first, take later, or leave.',
   path: '/moves/',
 })
 
 export default function MovesPage() {
   const moves = allMoves()
+  const groups: MoveGroup[] = TYPES.map((type) => ({
+    type,
+    title: `${TYPE_NAME[type]} moves`,
+    rows: moves.filter((m) => m.type === type).map((m) => ({
+      id: m.id,
+      name: moveName(m.id),
+      nameEs: m.nameEs,
+      kind: KIND_NAME[m.kind] || m.kind,
+      cd: m.cd ?? null,
+      dmg: m.kind === 'buff' ? null : m.dmg ?? null,
+      need: m.evo ? needName(m.evo.needs) : null,
+      evo: evoName(m) || null,
+    })),
+  })).filter((g) => g.rows.length)
+
   return (
     <>
       <Crumbs items={[{ href: '/', label: 'Home' }, { label: 'Moves' }]} />
@@ -36,34 +52,22 @@ export default function MovesPage() {
           offered more than two buff moves in one run.
         </p>
         <p>
-          Open a move for its cooldown, base damage, ladder, and the exact stat it wants.
+          The tables list cooldown, base damage, and the stat card. Open a move for the level ladder.
           The <Link href="/types/">type chart</Link> decides whether that damage is yellow or grey.
+          Starter jobs are on the <Link href="/best-starter/">best starter</Link> page, and the same
+          bands are on the <Link href="/tier-list/">tier list</Link>.
         </p>
       </section>
-      {TYPES.map((type) => {
-        const list = moves.filter((m) => m.type === type)
-        if (!list.length) return null
-        return (
-          <section className="box" key={type}>
-            <h2>{TYPE_NAME[type]} moves</h2>
-            <div className="scroll">
-              <table>
-                <thead><tr><th>Move</th><th>In-game name</th><th>Family</th><th>Evolves into</th></tr></thead>
-                <tbody>
-                  {list.map((m) => (
-                    <tr key={m.id}>
-                      <td><Link href={`/moves/${m.id}/`}>{moveName(m.id)}</Link></td>
-                      <td>{m.nameEs}</td>
-                      <td>{m.kind}</td>
-                      <td>{evoName(m) || '—'}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )
-      })}
+      <section className="box" id="best-moves">
+        <h2>Best PokéSurvivor moves</h2>
+        <p>
+          One move fires at a time. These bands follow that rule: cooldown, pierce, and whether the
+          move makes you stand in the pack. They are a first-clear read of the move table, not a
+          damage simulator.
+        </p>
+        <MovePicks />
+      </section>
+      <MoveTables groups={groups} />
     </>
   )
 }

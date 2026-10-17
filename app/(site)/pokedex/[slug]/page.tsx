@@ -4,7 +4,7 @@ import { Crumbs } from '@/components/Crumbs'
 import { Faq } from '@/components/Faq'
 import { Sprite } from '@/components/Sprite'
 import { TypePill } from '@/components/TypePill'
-import { genName, typeLabel } from '@/lib/constants'
+import { TYPE_NAME, genName, typeLabel } from '@/lib/constants'
 import {
   advice, allPokemon, behaviorLine, defenseChart, evoName, playNote,
   getMove, getPokemon, learnset, moveBlurb, moveName, rarityName, related, traitNames,
@@ -82,6 +82,8 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
           The run starts with <Link href={`/moves/${p.start}/`}>{moveName(p.start)}</Link>
           {start ? ` (${start.nameEs} in the game)` : ''}. {moveBlurb(p.start)}
           Later cards can offer any move of {typeLabel(p.types)} plus every Normal move.
+          Cooldown, base damage, and the stat card for each evolution are on the{' '}
+          <Link href="/moves/">moves list</Link>.
         </p>
         <div className="scroll">
           <table>
@@ -105,6 +107,15 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
         <p>
           Incoming damage uses this softened chart. Two types multiply, then the result is clamped
           between ×0.30 and ×2.40. A yellow damage number in-game means the hit is above ×1.05.
+          The full table is the <Link href="/types/">type chart</Link>, and {p.name}&apos;s own
+          pages are{' '}
+          {p.types.map((t, i) => (
+            <span key={t}>
+              {i > 0 && (i === p.types.length - 1 ? ' and ' : ', ')}
+              <Link href={`/types/${t}/`}>{TYPE_NAME[t]}</Link>
+            </span>
+          ))}
+          .
         </p>
         <h3>Hits {p.name} harder</h3>
         <div className="chart">

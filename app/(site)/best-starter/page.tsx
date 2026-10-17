@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { Crumbs } from '@/components/Crumbs'
 import { Faq } from '@/components/Faq'
+import { StarterExtremes } from '@/components/StarterExtremes'
+import { StarterTiers } from '@/components/StarterTiers'
 import { TypePill } from '@/components/TypePill'
 import { UPDATED, genName } from '@/lib/constants'
 import { board, traitLine } from '@/lib/quiz'
@@ -65,6 +67,29 @@ export default function BestStarterPage() {
           <Link className="btn" href="/play/">Play PokéSurvivor</Link>
         </p>
       </header>
+      <section className="box">
+        <h2>Which starter to take</h2>
+        <p>
+          For a first clear, take <Link href="/pokedex/charmander/">Charmander</Link>. Ember aims
+          itself and burns, and it becomes Fire Blast after a Power card. Take{' '}
+          <Link href="/pokedex/bulbasaur/">Bulbasaur</Link> if you want to stand in the pack.
+          Take <Link href="/pokedex/squirtle/">Squirtle</Link> if you want pierce without the burn.
+          The same three jobs, sorted, are the <Link href="/tier-list/">tier list</Link>.
+        </p>
+      </section>
+      <section className="box">
+        <h2>Starter tiers</h2>
+        <p>
+          S is the first clear. A is that same opening move on a different HP and speed, plus
+          Razor Leaf. B is Bubble and Confusion. Every partner below is also in the move groups
+          further down, which is where the plan for that opening move is written out.
+        </p>
+        <StarterTiers />
+      </section>
+      <section className="box">
+        <h2>Fastest and tankiest</h2>
+        <StarterExtremes />
+      </section>
       {GROUPS.map((group) => {
         const list = partners.filter((p) => p.start === group.start)
         return (

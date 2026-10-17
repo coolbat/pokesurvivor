@@ -10,6 +10,7 @@ const LINKS = [
 ]
 
 const MORE = [
+  { href: '/tier-list/', label: 'Tier list' },
   { href: '/best-starter/', label: 'Best starter' },
   { href: '/first-upgrades/', label: 'First upgrades' },
   { href: '/move-evolutions/', label: 'Move evolutions' },

@@ -7,13 +7,14 @@ import { counts, getByDex } from '@/lib/game'
 const GUIDES = [
   { href: '/guide/', title: 'How to play', text: 'Controls, a full run, level-ups, and what to grab on the map.' },
   { href: '/quiz/', title: 'Starter quiz', text: 'The same eight questions as the game, with a link you can share.' },
-  { href: '/best-starter/', title: 'Best starter', text: 'Melee, a burning shot, or a piercing shot. The quiz can be refused.' },
+  { href: '/best-starter/', title: 'Best starter', text: 'S-tier Charmander, Bulbasaur, or Squirtle. The quiz can be refused.' },
+  { href: '/tier-list/', title: 'Tier list', text: 'S/A/B starters, the moves to take, and what a shiny is worth.' },
   { href: '/fifteen-minute-run/', title: '15-minute run', text: 'Bosses at 3, 6, 9, 12, and 15 minutes, and when to enter a rift.' },
   { href: '/starters/', title: 'Starters', text: 'All 29 partners from the personality quiz, with their first move.' },
   { href: '/pokedex/', title: 'Pokédex', text: 'Every Pokémon in the game, with stats and a learnset.' },
-  { href: '/moves/', title: 'Moves', text: '64 moves, level ladders, and the gold evolution card.' },
+  { href: '/moves/', title: 'Moves', text: '64 moves with cooldown, damage, evolutions, and which ones to take.' },
   { href: '/types/', title: 'Type chart', text: 'The softened 1.6 / 0.6 / 0.3 chart used in combat.' },
-  { href: '/shinies/', title: 'Shinies', text: '1/4096 in the wild, 1/100 in the gacha, and what a shiny does.' },
+  { href: '/shinies/', title: 'Shinies', text: '1/4096 wild, 1/100 gacha, a rolls calculator, and the eight missing sprites.' },
   { href: '/legendaries/', title: 'Legendaries', text: 'Rift bosses, arenas, and the two-minute fight.' },
   { href: '/gacha/', title: 'Gacha', text: 'Region banners, tickets, rates, and the 70-pull pity.' },
 ]

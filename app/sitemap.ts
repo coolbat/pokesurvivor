@@ -6,7 +6,7 @@ import { board } from '@/lib/quiz'
 export const dynamic = 'force-static'
 
 const HUBS = [
-  '/', '/play/', '/guide/', '/quiz/', '/best-starter/', '/first-upgrades/',
+  '/', '/play/', '/guide/', '/quiz/', '/best-starter/', '/tier-list/', '/first-upgrades/',
   '/move-evolutions/', '/fifteen-minute-run/', '/pokedex/', '/moves/', '/types/',
   '/starters/', '/legendaries/', '/bosses/', '/shinies/', '/items/', '/upgrades/',
   '/gacha/', '/weather/', '/co-op/', '/faq/', '/about/',
@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${SITE}${path}`,
     lastModified: now,
     changeFrequency: path === '/' || path === '/play/' ? 'weekly' : 'monthly',
-    priority: path === '/' ? 1 : path === '/play/' || path === '/guide/' ? 0.9 : 0.7,
+    priority: path === '/' ? 1 : path === '/play/' || path === '/guide/' ? 0.9 : path === '/tier-list/' ? 0.8 : 0.7,
   }))
   for (const p of board()) {
     urls.push({
