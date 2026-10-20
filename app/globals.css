@@ -81,6 +81,14 @@ button, input, select { font: inherit; color: inherit; }
 .lede, .sub { color: var(--muted); }
 .lede { font-size: 18px; margin-top: 0; }
 .gold { color: var(--gold); }
+.formula {
+  margin: 10px 0;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, .22);
+  border-radius: 8px;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums;
+}
 
 .box {
   background: linear-gradient(180deg, var(--box1), var(--box2));
