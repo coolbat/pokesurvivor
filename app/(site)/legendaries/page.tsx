@@ -43,13 +43,27 @@ export default function LegendariesPage() {
         <h1>PokéSurvivor legendaries</h1>
         <p className="lede">
           Rift legendaries do not show up in normal waves and they are not the timed bosses.
-          A distortion rift can open from 1:15 onward: every 30 seconds there is a 14% chance,
-          and the portal stays for 45 seconds. Step through and the horde outside waits while you
-          fight one legendary for two minutes in a round arena.
+          Step through and the horde outside waits while you fight one legendary for two minutes
+          in a round arena.
         </p>
       </header>
       <section className="box">
         <h2>How a distortion rift works</h2>
+        <div className="scroll">
+          <table>
+            <thead>
+              <tr><th>When</th><th>Chance</th><th>Portal</th><th>If you lose</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>From 1:15, then every 30 seconds</td>
+                <td className="num">14%</td>
+                <td>Stays 45 seconds</td>
+                <td>Back at 30% HP, with no reward</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <ul className="clean">
           <li>The arena matches one of the legendary&apos;s two types, chosen at random, and that arena has its own terrain and weather.</li>
           <li>The legendary collides with walls and columns and cannot leave the circle. It is immune to its own arena hazards.</li>
@@ -74,15 +88,27 @@ export default function LegendariesPage() {
       </section>
       <section className="box">
         <h2>All {list.length} rift legendaries</h2>
-        <ul className="dex-list">
-          {list.map((p) => (
-            <li key={p.slug}>
-              <Link href={`/pokedex/${p.slug}/`}><span className="no">#{String(p.dex).padStart(4, '0')}</span><b>{p.name}</b></Link>
-              <span className="pills">{p.types.map((t) => <TypePill key={t} type={t} />)}</span>
-              <span className="meta">{genName(p.gen)} · BST {p.bst}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="scroll">
+          <table>
+            <thead>
+              <tr><th>Pokémon</th><th>Region</th><th>HP</th><th>Speed</th><th>BST</th></tr>
+            </thead>
+            <tbody>
+              {list.map((p) => (
+                <tr key={p.slug}>
+                  <td>
+                    <Link href={`/pokedex/${p.slug}/`}>{p.name}</Link>
+                    <div>{p.types.map((t) => <TypePill key={t} type={t} />)}</div>
+                  </td>
+                  <td>{genName(p.gen)}</td>
+                  <td className="num">{p.hp}</td>
+                  <td className="num">{p.spd}</td>
+                  <td className="num">{p.bst}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
       <Faq
         items={[

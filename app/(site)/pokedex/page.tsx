@@ -23,7 +23,8 @@ export default function PokedexPage() {
           All {n.pokemon} Pokémon currently in PokéSurvivor, from Kanto through Paldea. Stats here
           are the game&apos;s own HP, speed, and attack multipliers, not the main-series base stats,
           though the base stat total (BST) is what decides which wave tier and which boss slot a
-          Pokémon can roll into. Open any name for its learnset and type matchups.
+          Pokémon can roll into. Sort HP, speed, or attack to see the extreme. Open any name for
+          its learnset and type matchups.
         </p>
       </header>
       <section className="box">

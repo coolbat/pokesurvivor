@@ -1,8 +1,22 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Faq } from '@/components/Faq'
 import { Sprite } from '@/components/Sprite'
 import { UPDATED } from '@/lib/constants'
 import { counts, getByDex } from '@/lib/game'
+import { pageMeta } from '@/lib/seo'
+
+const TITLE = `PokéSurvivor Guide (${UPDATED}) — Starters, Moves & Shinies`
+
+export const metadata: Metadata = {
+  ...pageMeta({
+    title: TITLE,
+    description:
+      'PokéSurvivor guide for the free browser Pokémon survivor game: starters, the Pokédex, moves, type chart, shinies, bosses, and rift legendaries.',
+    path: '/',
+  }),
+  title: { absolute: TITLE },
+}
 
 const GUIDES = [
   { href: '/guide/', title: 'How to play', text: 'Controls, a full run, level-ups, and what to grab on the map.' },
@@ -82,7 +96,19 @@ export default function HomePage() {
           { q: 'Where can I play PokéSurvivor?', a: 'Use the Play page on this site. The official game from pokesurvivor.com is embedded there, so a run starts in the page. Guest play does not need an account. There is no download.' },
           { q: 'Is PokéSurvivor free?', a: 'Yes. The fan game has no ads and no purchases. Donations on the official site pay for the server and the domain. This guide is separate and also free.' },
           { q: 'How many Pokémon are in PokéSurvivor?', a: `The current roster is ${n.pokemon} Pokémon across nine regions, with ${n.shiny} shiny sprites. ${n.legends} legendaries only appear inside distortion rifts.` },
+          {
+            q: 'How do I unlock more Pokémon?',
+            a: 'The personality quiz offers 29 starters, and you can refuse it and pick another. Everyone else comes from that region\'s gacha, paid with tickets from runs. A wild shiny joins the collection if you defeat it. Legendaries are 5-star pulls. Beating one in a rift pays the tickets and unlocks its bond.',
+            href: '/gacha/',
+            hrefLabel: 'Gacha rates',
+          },
           { q: 'What are the PokéSurvivor shiny odds?', a: 'A wild Pokémon, including a boss, is shiny at 1 in 4,096. A gacha pull is shiny at 1 in 100. Defeat a wild shiny and you keep it. It has double HP and gives five times the experience.' },
+          {
+            q: 'What is a rift in PokéSurvivor?',
+            a: 'A distortion rift can open from 1:15. Every 30 seconds there is a 14% chance, and the portal stays 45 seconds. Inside is a two-minute legendary fight. A loss sends you back at 30% HP with nothing.',
+            href: '/legendaries/',
+            hrefLabel: 'Legendaries',
+          },
           { q: 'Does PokéSurvivor have co-op?', a: 'Yes, up to four players. You need a cloud account to add friends by nickname and open a room. The host runs the enemies and the clock. A downed partner can be revived by standing next to them for 3 seconds.' },
           { q: 'Is this the official PokéSurvivor site?', a: 'No. The game lives at pokesurvivor.com and the source is the JPTER78/pokesurvivor repository. This domain is a fan guide with an embedded copy of that game so you can read a page and then play.' },
         ]}

@@ -47,8 +47,14 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
       <Crumbs items={[{ href: '/', label: 'Home' }, { href: '/pokedex/', label: 'Pokédex' }, { label: p.name }]} />
       <article className="box">
         <div className="split">
-          <div className="stage">
-            {p.idle && <Sprite dex={p.dex} w={p.idle.w} h={p.idle.h} frames={p.idle.n} name={p.name} scale={3} />}
+          <div>
+            <div className="stage">
+              {p.idle && <Sprite dex={p.dex} w={p.idle.w} h={p.idle.h} frames={p.idle.n} name={p.name} scale={3} />}
+            </div>
+            <p className="note">
+              Sprite loaded from the game. Art is from{' '}
+              <a href="https://github.com/PMDCollab/SpriteCollab">SpriteCollab</a> under CC BY-NC 4.0.
+            </p>
           </div>
           <div>
             <p className="sub">#{String(p.dex).padStart(4, '0')} · {genName(p.gen)} · {rarityName(p.rarity)}</p>

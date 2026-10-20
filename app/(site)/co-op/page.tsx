@@ -11,7 +11,16 @@ export const metadata = pageMeta({
   path: '/co-op/',
 })
 
+function coop(n: number) {
+  return {
+    count: (1 + 0.75 * (n - 1)).toFixed(2),
+    hp: (1 + 0.3 * (n - 1)).toFixed(2),
+    xp: (1 + 0.6 * (n - 1)).toFixed(2),
+  }
+}
+
 export default function CoopPage() {
+  const rows = [2, 3, 4].map((n) => ({ n, ...coop(n) }))
   return (
     <>
       <Crumbs items={[{ href: '/', label: 'Home' }, { label: 'Co-op' }]} />
@@ -38,11 +47,27 @@ export default function CoopPage() {
       <section className="box">
         <h2>Difficulty and revives</h2>
         <p>
-          For a team of n players, enemy count is multiplied by <span className="gold">1 + 0.75 × (n − 1)</span> and
-          enemy HP by <span className="gold">1 + 0.3 × (n − 1)</span>. Team experience is divided by{' '}
-          <span className="gold">1 + 0.6 × (n − 1)</span>. Four players is a denser, tougher, slower-leveling run,
-          not four solo games taped together.
+          For a team of n players, enemy count is ×(1 + 0.75 × (n − 1)), enemy HP is ×(1 + 0.3 × (n − 1)),
+          and team experience is divided by (1 + 0.6 × (n − 1)). Four players is a denser, tougher,
+          slower-leveling run.
         </p>
+        <div className="scroll">
+          <table>
+            <thead>
+              <tr><th>Players</th><th>Enemy count</th><th>Enemy HP</th><th>Team experience</th></tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row.n}>
+                  <td>{row.n}</td>
+                  <td className="num">×{row.count}</td>
+                  <td className="num">×{row.hp}</td>
+                  <td className="num">÷{row.xp}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <p>
           If you fall, you stay on the ground. A partner who stands next to you for 3 seconds gets
           you up at half HP. The run ends only when everyone is down. Arrows at the screen edge point

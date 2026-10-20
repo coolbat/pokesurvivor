@@ -22,7 +22,7 @@ const text = Source_Sans_3({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: `PokéSurvivor Guide (${UPDATED}) — Play, Starters, Moves & Shinies`,
+    default: `PokéSurvivor Guide (${UPDATED}) — Starters, Moves & Shinies`,
     template: '%s · PokéSurvivor Guide',
   },
   description:
