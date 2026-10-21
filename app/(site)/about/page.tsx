@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Crumbs } from '@/components/Crumbs'
 import { GAME } from '@/lib/constants'
 import { pageMeta } from '@/lib/seo'
@@ -35,10 +36,11 @@ export default function AboutPage() {
           which requires credit and forbids commercial use. Pixelify Sans is used under the SIL Open Font License.
         </p>
         <p>
-          If a rights holder wants a sprite or a name taken off this guide, remove the embed by
-          contacting the operator of this domain. For anything inside the game itself, use the
+          If a rights holder wants a sprite or a name taken off this guide, use the{' '}
+          <Link href="/contact/">contact page</Link>. For anything inside the game itself, use the
           contact on the official site. This guide does not run the accounts, the leaderboard, or
-          the saves.
+          the saves. Privacy and the rules for using these pages are at{' '}
+          <Link href="/privacy/">Privacy</Link> and <Link href="/terms/">Terms</Link>.
         </p>
         <p>
           The play page loads <a href={GAME}>pokesurvivor.com</a> in an iframe because that site

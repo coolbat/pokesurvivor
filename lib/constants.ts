@@ -1,6 +1,9 @@
 export const SITE = 'https://pokesurvivor.net'
 export const GAME = 'https://pokesurvivor.com/'
 export const UPDATED = 'October 2026'
+export const CONTACT_EMAIL = 'contact@pokesurvivor.net'
+export const CONTACT_URL = 'https://github.com/coolbat/pokesurvivor/issues'
+export const LEGAL_UPDATED = 'October 21, 2026'
 
 export const TYPES = [
   'normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison',

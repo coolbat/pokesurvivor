@@ -35,6 +35,23 @@ body {
 }
 a { color: inherit; }
 img, .sprite { image-rendering: pixelated; image-rendering: crisp-edges; }
+.sprite { display: inline-block; position: relative; flex: none; }
+.sprite-fallback {
+  background-image: none !important;
+  background-color: #1c2742;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px rgba(185, 203, 240, 0.28);
+}
+.sprite-fallback::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 16%;
+  bottom: 14%;
+  background: #7d8cab;
+  border-radius: 48% 48% 40% 40%;
+}
 button, input, select { font: inherit; color: inherit; }
 .skip {
   position: absolute; left: 12px; top: -40px; background: var(--gold); color: #3a2300;

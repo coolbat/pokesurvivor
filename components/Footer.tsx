@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { GAME } from '@/lib/constants'
+import { CONTACT_EMAIL, GAME } from '@/lib/constants'
 
 export function Footer() {
   return (
@@ -9,6 +9,8 @@ export function Footer() {
         <a href={GAME}>pokesurvivor.com</a>. It is not affiliated with, sponsored, or endorsed by
         Nintendo, Creatures Inc., GAME FREAK, The Pokémon Company, or the game&apos;s author.
         Pokémon and related names are trademarks of their owners.
+        If you hold a right in something on this site and want it removed, email{' '}
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we will take it down.
       </p>
       <p>
         Mechanics on this site are read from the open-source project{' '}
@@ -19,6 +21,9 @@ export function Footer() {
       </p>
       <p className="footer-links">
         <Link href="/about/">About</Link>
+        <Link href="/privacy/">Privacy</Link>
+        <Link href="/terms/">Terms</Link>
+        <Link href="/contact/">Contact</Link>
         <Link href="/guide/">PokéSurvivor guide</Link>
         <Link href="/quiz/">Starter quiz</Link>
         <Link href="/play/">Play PokéSurvivor</Link>

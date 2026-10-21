@@ -10,6 +10,7 @@ const HUBS = [
   '/move-evolutions/', '/fifteen-minute-run/', '/pokedex/', '/moves/', '/types/',
   '/starters/', '/legendaries/', '/bosses/', '/shinies/', '/items/', '/upgrades/',
   '/gacha/', '/weather/', '/co-op/', '/faq/', '/about/',
+  '/privacy/', '/terms/', '/contact/',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
