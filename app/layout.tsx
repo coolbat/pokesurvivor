@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: '%s · PokéSurvivor Guide',
   },
   description:
-    'PokéSurvivor guide for the free browser Pokémon survivor game: play inside this site, plus starters, the Pokédex, moves, type chart, shinies, bosses, and rift legendaries.',
+    'PokéSurvivor guide for the free browser Pokémon survivor game: starters, the Pokédex, moves, type chart, shinies, bosses, and rift legendaries.',
   applicationName: 'PokéSurvivor Guide',
   authors: [{ name: 'PokéSurvivor Guide' }],
   robots: { index: true, follow: true, 'max-image-preview': 'large' },
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         '@id': `${SITE}/#website`,
         url: `${SITE}/`,
         name: 'PokéSurvivor Guide',
-        description: 'Fan guide and in-browser play page for PokéSurvivor.',
+        description: 'Fan guide for PokéSurvivor.',
         inLanguage: 'en',
       },
       {
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         numberOfPlayers: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 4 },
         applicationCategory: 'Game',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-        description: 'Free fan-made Pokémon survivor game in the browser. This guide links to it and embeds the official page so you can play without leaving pokesurvivor.net.',
+        description: 'Free fan-made Pokémon survivor game in the browser, played at pokesurvivor.com.',
       },
     ],
   }

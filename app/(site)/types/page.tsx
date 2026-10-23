@@ -7,7 +7,7 @@ import { pageMeta } from '@/lib/seo'
 export const metadata = pageMeta({
   title: `PokéSurvivor Type Chart (${UPDATED})`,
   description:
-    'PokéSurvivor type chart for October 2026: super effective is ×1.6, resisted is ×0.6, and immunities are ×0.3. Dual types multiply, capped between ×0.30 and ×2.40.',
+    `PokéSurvivor type chart for ${UPDATED}: super effective is ×1.6, resisted is ×0.6, and immunities are ×0.3. Dual types multiply, capped between ×0.30 and ×2.40.`,
   path: '/types/',
 })
 
@@ -22,7 +22,8 @@ export default function TypesPage() {
           a ×0.5 becomes ×0.6, and an immunity becomes ×0.3. You only have one active move, so a true
           immunity would make some waves unkillable. Two defending types multiply, and the product is
           clamped to ×0.30–×2.40. Your move uses its own type. Wild Pokémon strike with their primary
-          type, or the type of their shot.
+          type, or the type of their shot. A single-type Pokémon deals 20% more damage with a move of
+          that same type. A dual-type does not get this bonus. It has been in the game since 19 October 2026.
         </p>
       </header>
       <section className="box">

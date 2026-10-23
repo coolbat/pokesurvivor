@@ -14,7 +14,7 @@ export function Footer() {
       </p>
       <p>
         Mechanics on this site are read from the open-source project{' '}
-        <a href="https://github.com/JPTER78/pokesurvivor">JPTER78/pokesurvivor</a> (MIT code).
+        <a href="https://github.com/JPTER78/pokesurvivor">JPTER78/pokesurvivor</a> (PolyForm Noncommercial 1.0.0 after 14 October 2026; earlier copies MIT).
         Sprites shown here are loaded from the game and come from{' '}
         <a href="https://github.com/PMDCollab/SpriteCollab">SpriteCollab</a> under CC BY-NC 4.0.
         Pixelify Sans is used under the SIL Open Font License.

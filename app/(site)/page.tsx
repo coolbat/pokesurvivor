@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Faq } from '@/components/Faq'
 import { Sprite } from '@/components/Sprite'
-import { UPDATED } from '@/lib/constants'
+import { GAME, UPDATED } from '@/lib/constants'
 import { counts, getByDex } from '@/lib/game'
 import { pageMeta } from '@/lib/seo'
 
@@ -26,7 +26,7 @@ const GUIDES = [
   { href: '/fifteen-minute-run/', title: '15-minute run', text: 'Bosses at 3, 6, 9, 12, and 15 minutes, and when to enter a rift.' },
   { href: '/starters/', title: 'Starters', text: 'All 29 partners from the personality quiz, with their first move.' },
   { href: '/pokedex/', title: 'Pokédex', text: 'Every Pokémon in the game, with stats and a learnset.' },
-  { href: '/moves/', title: 'Moves', text: '64 moves with cooldown, damage, evolutions, and which ones to take.' },
+  { href: '/moves/', title: 'Moves', text: 'moves' },
   { href: '/types/', title: 'Type chart', text: 'The softened 1.6 / 0.6 / 0.3 chart used in combat.' },
   { href: '/shinies/', title: 'Shinies', text: '1/4096 wild, 1/100 gacha, a rolls calculator, and the eight missing sprites.' },
   { href: '/legendaries/', title: 'Legendaries', text: 'Rift bosses, arenas, and the two-minute fight.' },
@@ -47,14 +47,14 @@ export default function HomePage() {
             PokéSurvivor is a free Pokémon survivor game in the browser, built like Survivor.io:
             one partner, auto-attacks, and hordes that do not stop. This guide covers how to play
             PokéSurvivor, the {n.starters} starters, {n.moves} moves, shiny odds, bosses, and the
-            {' '}{n.legends} rift legendaries. Hit Play and the official game loads on this site.
+            {' '}{n.legends} rift legendaries. Hit Play to open the official site and start a run.
           </p>
           <div className="row">
-            <Link className="btn gold" href="/play/">Play PokéSurvivor</Link>
+            <a className="btn gold" href={GAME}>Play PokéSurvivor</a>
             <Link className="btn" href="/guide/">Read the guide</Link>
           </div>
           <p className="note">
-            Not an official Pokémon game, and not the author&apos;s site. The play page embeds pokesurvivor.com.
+            Not an official Pokémon game, and not the author&apos;s site.
           </p>
         </div>
         <div className="stage" aria-hidden="true">
@@ -79,7 +79,7 @@ export default function HomePage() {
         </p>
         <ul className="menu">
           {GUIDES.map((g) => (
-            <li key={g.href}><Link href={g.href}>{g.title}<small>{g.text}</small></Link></li>
+            <li key={g.href}><Link href={g.href}>{g.title}<small>{g.href === '/moves/' ? `${n.moves} moves with cooldown, damage, evolutions, and which ones to take.` : g.text}</small></Link></li>
           ))}
         </ul>
       </section>
@@ -93,7 +93,7 @@ export default function HomePage() {
 
       <Faq
         items={[
-          { q: 'Where can I play PokéSurvivor?', a: 'Use the Play page on this site. The official game from pokesurvivor.com is embedded there, so a run starts in the page. Guest play does not need an account. There is no download.' },
+          { q: 'Where can I play PokéSurvivor?', a: 'Use Play on this site, or go straight to pokesurvivor.com. The button opens the official game. Guest play does not need an account. There is no download.' },
           { q: 'Is PokéSurvivor free?', a: 'Yes. The fan game has no ads and no purchases. Donations on the official site pay for the server and the domain. This guide is separate and also free.' },
           { q: 'How many Pokémon are in PokéSurvivor?', a: `The current roster is ${n.pokemon} Pokémon across nine regions, with ${n.shiny} shiny sprites. ${n.legends} legendaries only appear inside distortion rifts.` },
           {
@@ -110,7 +110,7 @@ export default function HomePage() {
             hrefLabel: 'Legendaries',
           },
           { q: 'Does PokéSurvivor have co-op?', a: 'Yes, up to four players. You need a cloud account to add friends by nickname and open a room. The host runs the enemies and the clock. A downed partner can be revived by standing next to them for 3 seconds.' },
-          { q: 'Is this the official PokéSurvivor site?', a: 'No. The game lives at pokesurvivor.com and the source is the JPTER78/pokesurvivor repository. This domain is a fan guide with an embedded copy of that game so you can read a page and then play.' },
+          { q: 'Is this the official PokéSurvivor site?', a: 'No. The game lives at pokesurvivor.com and the source is the JPTER78/pokesurvivor repository. This domain is a fan guide. Play opens the official game.' },
         ]}
       />
     </>

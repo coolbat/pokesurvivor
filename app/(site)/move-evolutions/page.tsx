@@ -34,6 +34,8 @@ export default function MoveEvolutionsPage() {
           you already took the stat card that move asks for during that same run. Ember wants Power
           and becomes Fire Blast. Bubble wants Sprint and becomes Surf. Buff moves do not evolve.
           The card looks at the in-run stat, not the permanent menu upgrade of the same name.
+          This chart is the level-up pool. A TM taught from the Kecleon Shop uses the same gold card
+          once that move is in the run.
         </p>
       </header>
       {groups.map((group) => (

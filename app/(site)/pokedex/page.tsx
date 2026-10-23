@@ -24,7 +24,10 @@ export default function PokedexPage() {
           are the game&apos;s own HP, speed, and attack multipliers, not the main-series base stats,
           though the base stat total (BST) is what decides which wave tier and which boss slot a
           Pokémon can roll into. Sort HP, speed, or attack to see the extreme. Open any name for
-          its learnset and type matchups.
+          its learnset, abilities, and type matchups. A hidden ability is about 1 in 20 when the
+          species has one. An Ability Capsule cannot select it. A Hidden Ability Capsule can.
+          On the in-game collection card the two ability names can draw on top of each other, so
+          the effect lines on each page are the ones to read.
         </p>
       </header>
       <section className="box">

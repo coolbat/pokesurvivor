@@ -35,6 +35,8 @@ export default function ItemsPage() {
           You hold one item per PokéSurvivor run. It lasts until you fall. Bosses always drop one.
           Locked chests drop one half the time, and ordinary chests about 8% of the time. If you
           already hold an item, the game asks you to pick. In solo play that choice pauses the run.
+          These 11 are held items for a single run. Mints, Ability Capsules, and TMs are the Kecleon
+          Shop bag, on the <Link href="/upgrades/#kecleon-shop">upgrades page</Link>.
         </p>
       </header>
       <section className="box">

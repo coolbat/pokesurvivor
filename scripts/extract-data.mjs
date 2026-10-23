@@ -13,7 +13,7 @@ const OUT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'data'
 
 const G = {}
 const ctx = vm.createContext({ G, console })
-for (const file of ['pokedex.js', 'moves.js', 'starters.js', 'sprites-meta.js']) {
+for (const file of ['pokedex.js', 'moves.js', 'starters.js', 'sprites-meta.js', 'tms.js']) {
   vm.runInContext(fs.readFileSync(path.join(SRC, file), 'utf8'), ctx)
 }
 
@@ -98,7 +98,7 @@ for (const p of pokemon) {
   if (p.summons && byDex[p.summons]) p.summonsName = byDex[p.summons].name
 }
 
-const KEEP = ['cd', 'dmg', 'speed', 'count', 'spread', 'pierce', 'life', 'size', 'radius', 'width', 'arc', 'dur', 'amount', 'stacks', 'stat', 'burn', 'slow', 'knock', 'homing', 'hex']
+const KEEP = ['cd', 'dmg', 'speed', 'count', 'spread', 'pierce', 'life', 'size', 'radius', 'width', 'arc', 'dur', 'amount', 'stacks', 'stat', 'burn', 'slow', 'knock', 'homing', 'hex', 'cat', 'bounce', 'charge', 'stun', 'pull', 'drain', 'poison', 'range', 'rate']
 const moves = G.Moves.ALL.map((m) => {
   const evo = G.Moves.EVO[m.id]
   const row = {
@@ -111,8 +111,57 @@ const moves = G.Moves.ALL.map((m) => {
   for (const k of KEEP) if (m[k] != null) row[k] = m[k]
   if (m.ups) row.ladderEs = m.ups.map((u) => u.t)
   if (evo) row.evo = { nameEs: evo[0], needs: evo[1] }
+  if (G.TM_MOVES && G.TM_MOVES[m.id]) row.tm = true
   return row
 })
+
+const TYPE_ES = {
+  normal: 'Normal', fire: 'Fuego', water: 'Agua', electric: 'Eléctrico', grass: 'Planta', ice: 'Hielo',
+  fighting: 'Lucha', poison: 'Veneno', ground: 'Tierra', flying: 'Volador', psychic: 'Psíquico', bug: 'Bicho',
+  rock: 'Roca', ghost: 'Fantasma', dragon: 'Dragón', dark: 'Siniestro', steel: 'Acero', fairy: 'Hada',
+}
+const TYPE_EN = Object.fromEntries(Object.entries(TYPE_ES).map(([id, es]) => [es, id === 'electric' ? 'Electric' : id[0].toUpperCase() + id.slice(1)]))
+TYPE_EN.Eléctrico = 'Electric'
+TYPE_EN.Psíquico = 'Psychic'
+const dict = {}
+G.I18n = { add(obj) { Object.assign(dict, obj) } }
+G.U = { TYPE_NAME: TYPE_ES }
+vm.runInContext(fs.readFileSync(path.join(SRC, 'lang-en.js'), 'utf8'), ctx)
+vm.runInContext(fs.readFileSync(path.join(SRC, 'abilities.js'), 'utf8'), ctx)
+vm.runInContext(fs.readFileSync(path.join(SRC, 'ability-fx.js'), 'utf8'), ctx)
+vm.runInContext(fs.readFileSync(path.join(SRC, 'natures.js'), 'utf8'), ctx)
+
+function translateEffect(es) {
+  if (dict[es]) return dict[es]
+  const names = Object.keys(TYPE_EN).sort((a, b) => b.length - a.length)
+  for (const name of names) {
+    if (!es.includes(name)) continue
+    const key = es.replace(name, '{x}')
+    if (dict[key]) return dict[key].replaceAll('{x}', TYPE_EN[name])
+  }
+  throw new Error(`No English ability line for: ${es}`)
+}
+
+const abilities = {}
+for (const p of pokemon) {
+  const slots = (G.DEX_ABIL && G.DEX_ABIL[p.dex]) || [0, 0, 0]
+  const lines = []
+  slots.forEach((id, index) => {
+    if (!id) return
+    const fx = G.AbilityFX.of(id, { types: p.types, dex: p.dex })
+    const row = {
+      id,
+      name: G.ABIL[id][1],
+      hidden: index === 2,
+      effect: translateEffect(fx.d),
+    }
+    if (fx.d2) row.extra = translateEffect(fx.d2)
+    lines.push(row)
+  })
+  abilities[p.dex] = lines
+}
+
+const natures = G.NATURES.map((n) => ({ id: n.id, name: n.n[1], up: n.up || '', down: n.down || '' }))
 
 const bosses = [
   { minute: 3, hp: 1400, bst: [490, 545] },
@@ -133,4 +182,6 @@ fs.mkdirSync(OUT, { recursive: true })
 fs.writeFileSync(path.join(OUT, 'pokemon.json'), JSON.stringify(pokemon))
 fs.writeFileSync(path.join(OUT, 'moves.json'), JSON.stringify(moves))
 fs.writeFileSync(path.join(OUT, 'bosses.json'), JSON.stringify(bosses))
-console.log(`pokemon ${pokemon.length}, moves ${moves.length}, slugs ${slugs.size}, shiny ${pokemon.filter((p) => p.shiny).length}, legends ${pokemon.filter((p) => p.leg).length}`)
+fs.writeFileSync(path.join(OUT, 'abilities.json'), JSON.stringify(abilities))
+fs.writeFileSync(path.join(OUT, 'natures.json'), JSON.stringify(natures))
+console.log(`pokemon ${pokemon.length}, moves ${moves.length}, slugs ${slugs.size}, shiny ${pokemon.filter((p) => p.shiny).length}, legends ${pokemon.filter((p) => p.leg).length}, abilities ${Object.keys(abilities).length}, natures ${natures.length}`)

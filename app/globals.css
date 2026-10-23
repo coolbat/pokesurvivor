@@ -224,7 +224,6 @@ ul.clean li { margin: 4px 0; }
 .play-help { margin: 0 12px 8px; color: var(--muted); font-size: 15px; line-height: 1.45; }
 .play-help summary { cursor: pointer; color: var(--gold); font-weight: 700; }
 .play-help a { color: var(--gold); }
-.frame-wrap iframe { flex: 1; width: 100%; min-height: 0; border: 0; background: #050914; }
 .quiz-options { display: grid; gap: 8px; }
 .quiz-options button { width: 100%; text-align: left; font-family: var(--font); font-weight: 600; }
 .quiz-progress { color: var(--muted); font-size: 14px; margin: 0 0 8px; }

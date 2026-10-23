@@ -1,9 +1,9 @@
 export const SITE = 'https://pokesurvivor.net'
 export const GAME = 'https://pokesurvivor.com/'
-export const UPDATED = 'October 2026'
+export const UPDATED = 'October 22, 2026'
 export const CONTACT_EMAIL = 'contact@pokesurvivor.net'
 export const CONTACT_URL = 'https://github.com/coolbat/pokesurvivor/issues'
-export const LEGAL_UPDATED = 'October 21, 2026'
+export const LEGAL_UPDATED = 'October 23, 2026'
 
 export const TYPES = [
   'normal', 'fire', 'water', 'electric', 'grass', 'ice', 'fighting', 'poison',
@@ -110,6 +110,8 @@ export const KIND_NAME: Record<string, string> = {
   projectile: 'Projectile', melee: 'Melee', beam: 'Beam', orbit: 'Orbit', nova: 'Nova',
   aura: 'Aura', buff: 'Buff', boomerang: 'Boomerang', chain: 'Chain', mine: 'Mine',
   meteor: 'Meteor', turret: 'Turret', dash: 'Dash', trail: 'Trail', cone: 'Cone',
+  homing: 'Homing', bounce: 'Bounce', charge: 'Charge', spin: 'Spin',
+  quake: 'Quake', vortex: 'Vortex', shove: 'Shove', stun: 'Stun',
 }
 
 export const KIND_BLURB: Record<string, string> = {
@@ -128,6 +130,14 @@ export const KIND_BLURB: Record<string, string> = {
   dash: 'You dash through the enemy and hit everything on the path. You do not take damage during the dash.',
   trail: 'You leave puddles behind you that damage anything standing in them.',
   cone: 'A short fan of shots, like a breath or a spray.',
+  homing: 'A shot that steers toward an enemy.',
+  bounce: 'A shot that jumps from one enemy to the next.',
+  charge: 'You charge it, then it fires a beam through the line.',
+  spin: 'Hits everything around you, more than once.',
+  quake: 'Shockwaves travel along the ground in front of you.',
+  vortex: 'A whirl that pulls enemies in and damages them.',
+  shove: 'A wave that pushes nearby enemies away.',
+  stun: 'A marked patch of ground that damages and stuns.',
 }
 
 export const LADDERS: Record<string, string[]> = {
@@ -146,6 +156,14 @@ export const LADDERS: Record<string, string[]> = {
   trail: ['+40% damage', '+40% duration', 'Puddles 30% larger', '+50% damage and +30% radius'],
   cone: ['+3 shots', '+40% damage', '+30% range', '+3 shots and +1 pierce'],
   buff: ['+1 max stack', '+40% strength', '+50% duration', '+1 stack and +40% strength'],
+  homing: ['+1 projectile', '+45% damage', '−25% cooldown', '+1 projectile and +40% damage'],
+  bounce: ['+1 bounce', '+45% damage', '−25% cooldown', '+1 projectile and +1 bounce'],
+  charge: ['+45% damage', '+30% range and width', 'Charges faster and −20% cooldown', '+50% damage'],
+  spin: ['+40% damage', '+25% radius', '+1 spin', '−25% cooldown and +30% damage'],
+  quake: ['+2 waves', '+45% damage', '+25% size', '−25% cooldown and +2 waves'],
+  vortex: ['+40% damage', '+30% radius', '+50% duration', 'Pulls harder and +40% damage'],
+  shove: ['+40% damage', '+25% radius', '−25% cooldown', '+50% push and +40% damage'],
+  stun: ['+40% damage', '+25% radius', '+50% stun', '−25% cooldown and +30% damage'],
 }
 
 export const EVO_BONUS: Record<string, string> = {
@@ -163,6 +181,14 @@ export const EVO_BONUS: Record<string, string> = {
   dash: '×1.9 damage, more distance, and a shorter cooldown',
   trail: '×1.8 damage, with larger puddles that last longer',
   cone: '×1.7 damage, +4 shots, and +1 pierce',
+  homing: '×1.8 damage, +2 projectiles, and a larger shot',
+  bounce: '×1.8 damage, +2 bounces, and +1 projectile',
+  charge: '×1.8 damage, a beam 50% thicker, and a faster charge',
+  spin: '×1.8 damage, +1 spin, and more radius',
+  quake: '×1.8 damage, +3 waves, and larger waves',
+  vortex: '×1.8 damage, more radius, and a stronger pull',
+  shove: '×1.8 damage, more radius, and a stronger push',
+  stun: '×1.8 damage, more radius, and a longer stun',
 }
 
 export const NEED: Record<string, string> = {
@@ -171,5 +197,5 @@ export const NEED: Record<string, string> = {
 }
 
 export const BUFF_STAT: Record<string, string> = {
-  atk: 'Attack', spd: 'Speed', def: 'Defense', regen: 'HP regen',
+  atk: 'Attack', patk: 'Attack', satk: 'Special Attack', spd: 'Speed', def: 'Defense', regen: 'HP regen',
 }

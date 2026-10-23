@@ -6,7 +6,7 @@ import { pageMeta } from '@/lib/seo'
 export const metadata: Metadata = pageMeta({
   title: `Play PokéSurvivor Online Free (${UPDATED})`,
   description:
-    'Play PokéSurvivor online in your browser. The official game is embedded on this page, so you can start a run without a download, an install, or a new tab.',
+    'Play PokéSurvivor online in your browser. Play opens the official site, with no download and no install.',
   path: '/play/',
 })
 

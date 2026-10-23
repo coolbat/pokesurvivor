@@ -70,7 +70,7 @@ export const metadata: Metadata = {
   ...pageMeta({
     title: `PokéSurvivor Tier List (${UPDATED}) — Best Starters, Moves & Shinies`,
     description:
-      `October 2026 PokéSurvivor tier list for the browser game. Starter HP and speed, the six opening moves, and shiny odds are the in-game numbers: 1/4096 wild, 1/100 gacha.`,
+      `${UPDATED} PokéSurvivor tier list for the browser game. Starter HP and speed, the six opening moves, and shiny odds are the in-game numbers: 1/4096 wild, 1/100 gacha.`,
     path: '/tier-list/',
   }),
   title: { absolute: `PokéSurvivor Tier List (${UPDATED}) — Best Starters, Moves & Shinies` },

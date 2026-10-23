@@ -1,6 +1,7 @@
 import pokemonJson from '@/data/pokemon.json'
 import movesJson from '@/data/moves.json'
 import bossesJson from '@/data/bosses.json'
+import abilitiesJson from '@/data/abilities.json'
 import {
   BUFF_STAT, EVO_BONUS, GENS, KIND_NAME, LADDERS, NEED, RARITY, TRAIT,
   TYPE_NAME, TYPES, genName, matchup, typeLabel,
@@ -49,7 +50,28 @@ export interface Move {
   stacks?: number
   burn?: number
   slow?: number
+  knock?: number
+  homing?: number
+  hex?: number
+  cat?: 'physical' | 'special'
+  bounce?: number
+  charge?: number
+  stun?: number
+  pull?: number
+  drain?: number
+  poison?: number
+  range?: number
+  rate?: number
+  tm?: boolean
   evo?: { nameEs: string; needs: string }
+}
+
+export interface Ability {
+  id: string
+  name: string
+  hidden: boolean
+  effect: string
+  extra?: string
 }
 
 export interface BossSlot {
@@ -62,6 +84,7 @@ export interface BossSlot {
 const pokemon = pokemonJson as Mon[]
 const moves = movesJson as Move[]
 const bosses = bossesJson as BossSlot[]
+const abilities = abilitiesJson as Record<string, Ability[]>
 
 const bySlug = new Map(pokemon.map((p) => [p.slug, p]))
 const byDex = new Map(pokemon.map((p) => [p.dex, p]))
@@ -85,6 +108,16 @@ export function allMoves(): Move[] {
 
 export function getMove(id: string): Move | undefined {
   return moveById.get(id)
+}
+
+export function abilitiesOf(dex: number): Ability[] {
+  const rows = abilities[String(dex)] || []
+  const seen = new Set<string>()
+  return rows.filter((row) => {
+    if (seen.has(row.id)) return false
+    seen.add(row.id)
+    return true
+  })
 }
 
 export function bossSlots(): BossSlot[] {
@@ -246,6 +279,8 @@ export function behaviorLine(mon: Mon): string | null {
 
 export function moveStatLine(m: Move): string[] {
   const bits: string[] = []
+  if (m.cat === 'physical') bits.push('Physical')
+  if (m.cat === 'special') bits.push('Special')
   if (m.cd != null) bits.push(`${m.cd}s cooldown`)
   if (m.kind === 'buff' && m.stat) {
     bits.push(`stacks ${BUFF_STAT[m.stat] || m.stat}`)
@@ -255,10 +290,20 @@ export function moveStatLine(m: Move): string[] {
   } else if (m.dmg != null) {
     bits.push(`${m.dmg} base damage`)
   }
-  if (m.count != null && m.kind !== 'buff') bits.push(`${m.count} ${m.kind === 'chain' ? 'jumps' : 'shots'}`)
+  if (m.charge) bits.push(`${m.charge}s charge`)
+  if (m.count != null && m.kind !== 'buff' && (m.count > 1 || m.kind === 'spin' || m.kind === 'quake' || m.kind === 'chain')) {
+    const label = m.kind === 'chain' ? 'jumps' : m.kind === 'spin' ? 'spins' : m.kind === 'quake' ? 'waves' : 'shots'
+    bits.push(`${m.count} ${label}`)
+  }
+  if (m.bounce) bits.push(`${m.bounce} bounces`)
   if (m.pierce) bits.push(`${m.pierce} pierce`)
+  if (m.homing) bits.push('homes in')
+  if (m.pull) bits.push('pulls in')
+  if (m.drain) bits.push('heals on hit')
   if (m.burn) bits.push('can burn')
   if (m.slow) bits.push('can slow')
+  if (m.poison) bits.push('can poison')
+  if (m.stun) bits.push('can stun')
   return bits
 }
 

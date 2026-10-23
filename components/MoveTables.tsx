@@ -8,6 +8,7 @@ export interface MoveRow {
   name: string
   nameEs: string
   kind: string
+  cat: string
   cd: number | null
   dmg: number | null
   need: string | null
@@ -20,12 +21,13 @@ export interface MoveGroup {
   rows: MoveRow[]
 }
 
-type Key = 'name' | 'nameEs' | 'kind' | 'cd' | 'dmg' | 'need' | 'evo'
+type Key = 'name' | 'nameEs' | 'kind' | 'cat' | 'cd' | 'dmg' | 'need' | 'evo'
 
 const COLS: { key: Key; label: string; num?: boolean }[] = [
   { key: 'name', label: 'Move' },
   { key: 'nameEs', label: 'In-game name' },
   { key: 'kind', label: 'Family' },
+  { key: 'cat', label: 'Category' },
   { key: 'cd', label: 'Cooldown', num: true },
   { key: 'dmg', label: 'Base damage', num: true },
   { key: 'need', label: 'Stat card' },

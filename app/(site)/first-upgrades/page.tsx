@@ -79,6 +79,7 @@ export default function FirstUpgradesPage() {
           <li>Reflexes (−3% cooldown, first rank 90) on a shot or a beam. Skip it on a buff.</li>
           <li>Fortune (+8% coins, first rank 120) only once that partner already clears bosses. It multiplies the coins of later runs. It does not help the run you are in.</li>
           <li>Repertoire at 1,500 coins, one rank, starts the run with two moves. Buy it after the 3:00 boss is reliable, not before Vitality and Strength.</li>
+          <li>Starting move and Second starting move are 400 coins each, bought once. They pick which moves those opening slots use. Second starting move needs Repertoire. They are not part of the first 500.</li>
         </ol>
         <p>
           In-run cards named Vigor, Power, Sprint, Reflexes, Guard, Synthesis, Magnet, and Study

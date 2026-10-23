@@ -4,9 +4,9 @@ import { Crumbs } from '@/components/Crumbs'
 import { Faq } from '@/components/Faq'
 import { Sprite } from '@/components/Sprite'
 import { TypePill } from '@/components/TypePill'
-import { TYPE_NAME, genName, typeLabel } from '@/lib/constants'
+import { KIND_NAME, TYPE_NAME, genName, typeLabel } from '@/lib/constants'
 import {
-  advice, allPokemon, behaviorLine, defenseChart, evoName, playNote,
+  abilitiesOf, advice, allPokemon, behaviorLine, defenseChart, evoName, playNote,
   getMove, getPokemon, learnset, moveBlurb, moveName, rarityName, related, traitNames,
 } from '@/lib/game'
 import { pageMeta } from '@/lib/seo'
@@ -35,6 +35,7 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
   const p = getPokemon(slug)
   if (!p) notFound()
   const moves = learnset(p)
+  const abilities = abilitiesOf(p.dex)
   const start = getMove(p.start)
   const threats = defenseChart(p.types).sort((a, b) => b.mult - a.mult)
   const friends = related(p)
@@ -82,14 +83,38 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
         {behavior && <p>{behavior} {p.summonsSlug && <Link href={`/pokedex/${p.summonsSlug}/`}>See {p.summonsName}</Link>}</p>}
       </article>
 
+      {abilities.length > 0 && (
+        <section className="box">
+          <h2>{p.name} abilities</h2>
+          <p>
+            The game rolls one of these. A hidden ability is about 1 in 20 when {p.name} has one.
+            An Ability Capsule, 1,500 PokéCoins, switches among the regular abilities.
+            A Hidden Ability Capsule, 5,000, can select the hidden ability as well.
+            On the in-game collection card the two names can draw on top of each other.
+            The lines here are the effects. Natures are a separate ±10% and are changed with a Mint
+            on the <Link href="/upgrades/">Kecleon Shop</Link>.
+          </p>
+          <ul className="clean">
+            {abilities.map((ability) => (
+              <li key={ability.id}>
+                <b>{ability.name}</b>
+                {ability.hidden ? ' (hidden)' : ''}: {ability.effect}
+                {ability.extra ? ` ${ability.extra}` : ''}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className="box">
         <h2>{p.name} moves in PokéSurvivor</h2>
         <p>
           The run starts with <Link href={`/moves/${p.start}/`}>{moveName(p.start)}</Link>
           {start ? ` (${start.nameEs} in the game)` : ''}. {moveBlurb(p.start)}
-          Later cards can offer any move of {typeLabel(p.types)} plus every Normal move.
-          Cooldown, base damage, and the stat card for each evolution are on the{' '}
-          <Link href="/moves/">moves list</Link>.
+          Level-up cards offer any move of {typeLabel(p.types)} plus every Normal move.
+          A taught TM adds a move this species learns in the main series, and that move then
+          shows up in the same cards. Cooldown, base damage, and the stat card for each evolution
+          are on the <Link href="/moves/">moves list</Link>.
         </p>
         <div className="scroll">
           <table>
@@ -99,7 +124,7 @@ export default async function PokemonPage({ params }: { params: Promise<{ slug: 
                 <tr key={m.id}>
                   <td><Link href={`/moves/${m.id}/`}>{moveName(m.id)}</Link></td>
                   <td><TypePill type={m.type} /></td>
-                  <td>{m.kind}</td>
+                  <td>{KIND_NAME[m.kind] || m.kind}{m.cat === 'physical' ? ' · Physical' : m.cat === 'special' ? ' · Special' : ''}</td>
                   <td>{evoName(m) || '—'}</td>
                 </tr>
               ))}

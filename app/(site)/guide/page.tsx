@@ -82,13 +82,16 @@ export default function GuidePage() {
               <tr><td>A</td><td>Skip the Arceus cinematic</td><td>Confirm</td></tr>
               <tr><td>B</td><td></td><td>Back</td></tr>
               <tr><td>Y</td><td></td><td>Reroll the level-up cards</td></tr>
-              <tr><td>Right stick</td><td>Aim, only with Manual aim on</td><td>Scroll lists</td></tr>
+              <tr><td>Right stick</td><td>Aim, only on desktop and only with Manual aim on</td><td>Scroll lists</td></tr>
             </tbody>
           </table>
         </div>
         <p>
           Manual aim is under Settings, then Accessibility, and it is off by default. With it off, the
-          right stick does not aim.
+          right stick does not aim. Since 20 October 2026 the option is not on a phone, and touch
+          aiming is always automatic. A request to bring manual aim back for an Android controller
+          was still open on 23 October 2026. While you are down in co-op, Q and E, or LB and RB,
+          move the camera between teammates who are still standing.
         </p>
       </section>
 
@@ -96,7 +99,7 @@ export default function GuidePage() {
         <h2>The first ten minutes</h2>
         <ol className="clean">
           <li>Create a guest session or an account, then take the eight-question personality quiz. It suggests one of 29 starters. You can refuse and pick another. See the <Link href="/starters/">starter list</Link>.</li>
-          <li>You begin with one move, or two if that Pokémon has bought the Repertoire upgrade. Take every level-up. Each level offers one of three cards.</li>
+          <li>You begin with one move, or two if that Pokémon has bought Repertoire. Starting move, 400 coins once since 19 October 2026, lets you pick the first. Second starting move, 400 coins once since 21 October 2026, needs Repertoire and lets you pick the second. Changing either pick later is free. Take every level-up. Each level offers one of three cards.</li>
           <li>Break rocks, tall grass, and chests as you walk. They drop experience, coins, and berries. <b>Do not stop moving when a wave condenses.</b></li>
           <li>From about 70 seconds the cast gets tougher. A healer, shielder, bomber, or summoner is mixed into the tiers. <b>Kill healers first.</b></li>
           <li>The first boss is at 3:00, then 6:00, 9:00, 12:00, and 15:00. During a boss the normal waves drop to a quarter and there is no swarm. Each boss drops a ×10 gacha ticket.</li>
@@ -109,8 +112,9 @@ export default function GuidePage() {
         <p>
           Cards are either a new move, a level on a move you own, or a stat: Vigor, Power, Sprint,
           Reflexes, Guard, Synthesis, Magnet, or Study. You will not be offered more than two buff-only
-          moves. Moves come from your Pokémon&apos;s types plus a shared Normal pool, so a Fire partner
-          sees Ember, Flamethrower, Fire Spin, Heat Wave, and the Normal list. The full catalog is the{' '}
+          moves.           Moves come from your Pokémon&apos;s types plus a shared Normal pool, so a Fire partner
+          sees Ember, Flamethrower, Fire Spin, Heat Wave, and the Normal list. A TM taught from the
+          Kecleon Shop can add a move outside those types, and then it can show up here. The full catalog is the{' '}
           <Link href="/moves/">PokéSurvivor moves guide</Link>.
         </p>
         <p>
@@ -189,11 +193,17 @@ export default function GuidePage() {
           Tickets are separate and feed the <Link href="/gacha/">region gacha</Link>.
           A held item is gone when the run ends. The <Link href="/items/">item list</Link> says which one to keep if a second one drops.
         </p>
-        <h3>A cloud account merges the two saves</h3>
+        <h3>Press Save to upload</h3>
         <p>
-          Guest progress stays in this browser. A cloud account follows you to another computer and
-          merges saves: collections union, upgrades keep the higher level, and coins follow the newer
-          save. Playing two sessions at once still merges. It does not delete a Pokémon you already own.
+          Guest progress is saved in this browser immediately. A cloud account uploads when you press
+          Save at the top, before the game reloads for an update, or when you sign out. Closing the
+          tab does not upload. On a reload the two copies merge: collections union, upgrade ranks keep
+          the higher level, and coins and tickets add each device&apos;s earnings and spending instead
+          of keeping the newer balance. Since 21 October 2026 a save merges first when the cloud copy
+          is newer, so an old tab does not overwrite it. After those changes, players still reported a
+          phone total of about 33,000 coins showing as 0 on a computer, the same Gmail with two coin
+          totals, and a shiny Lucario plus its upgrade progress missing the next day. Those reports
+          were still open on 23 October 2026.
         </p>
       </section>
 
@@ -209,7 +219,7 @@ export default function GuidePage() {
       <Faq
         title="PokéSurvivor beginner questions"
         items={[
-          { q: 'Can I change Pokémon during a run?', a: 'No. You pick a partner on the menu, then that Pokémon is the whole run. Its type decides the move pool, and its own upgrades are the ones that apply.' },
+          { q: 'Can I change Pokémon during a run?', a: 'No. You pick a partner on the menu, then that Pokémon is the whole run. Its types, plus any TM it has been taught, decide the move pool, and its own upgrades are the ones that apply.' },
           {
             q: 'Why is my damage number yellow or grey?',
             a: 'Yellow means the move is super effective on the PokéSurvivor chart (above ×1.05). Grey means it is resisted. The chart uses ×1.6, ×0.6, and ×0.3 instead of the main-series ×2, ×0.5, and ×0, because you only have one active attack.',

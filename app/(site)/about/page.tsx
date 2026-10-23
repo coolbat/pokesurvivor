@@ -6,7 +6,7 @@ import { pageMeta } from '@/lib/seo'
 export const metadata = pageMeta({
   title: 'About this PokéSurvivor Guide',
   description:
-    'This PokéSurvivor guide is a fan site. It is not affiliated with Nintendo or the game author. Numbers come from the open-source repository, and Play embeds the official game.',
+    'This PokéSurvivor guide is a fan site. It is not affiliated with Nintendo or the game author. Numbers come from the open-source repository, and Play opens the official game.',
   path: '/about/',
 })
 
@@ -18,7 +18,7 @@ export default function AboutPage() {
         <h1>About this guide</h1>
         <p>
           This guide is published at <a href={SITE}>https://pokesurvivor.net</a>. It is a fan-written
-          guide for PokéSurvivor, plus a play page that embeds the official game. It is not affiliated with, sponsored, or endorsed by Nintendo, Creatures
+          guide for PokéSurvivor. Play opens the official game. It is not affiliated with, sponsored, or endorsed by Nintendo, Creatures
           Inc., GAME FREAK, The Pokémon Company, or the person who made the game.
         </p>
         <p>
@@ -30,7 +30,8 @@ export default function AboutPage() {
           Combat numbers, move ladders, boss times, gacha rates, and the Pokédex stats are taken
           from the public source at{' '}
           <a href="https://github.com/JPTER78/pokesurvivor">github.com/JPTER78/pokesurvivor</a>.
-          The code of that project is MIT. Sprites displayed here are requested from{' '}
+          Code published after commit b297089 on 14 October 2026 is PolyForm Noncommercial 1.0.0.
+          That commit and earlier copies remain MIT. Sprites displayed here are requested from{' '}
           <a href={GAME}>pokesurvivor.com</a> and originate in{' '}
           <a href="https://github.com/PMDCollab/SpriteCollab">SpriteCollab</a> under CC BY-NC 4.0,
           which requires credit and forbids commercial use. Pixelify Sans is used under the SIL Open Font License.
@@ -43,10 +44,9 @@ export default function AboutPage() {
           <Link href="/privacy/">Privacy</Link> and <Link href="/terms/">Terms</Link>.
         </p>
         <p>
-          The play page loads <a href={GAME}>pokesurvivor.com</a> in an iframe because that site
-          does not send an <code>X-Frame-Options</code> or <code>frame-ancestors</code> block.
-          Guest play and the local save work inside the frame. A Google sign-in popup can still be
-          blocked by the browser; if that happens, sign in on the official site and come back.
+          Play opens <a href={GAME}>pokesurvivor.com</a>. This guide does not run the game.
+          Since 19 October 2026 the game refuses to start inside another site&apos;s frame.
+          Guest play and cloud saves belong to the official site.
         </p>
       </article>
     </>

@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         <p className="note">Effective {LEGAL_UPDATED}. This page covers {SITE.replace('https://', '')} only.</p>
         <p>
           This guide does not ask you to make an account, and it does not sell personal information.
-          The Play page is different: it loads the official game from another site, and that game has
+          Play opens the official game on another site, and that game has
           its own saves and its own privacy practices.
         </p>
 
@@ -57,12 +57,11 @@ export default function PrivacyPage() {
           so your browser contacts that host for the image.
         </p>
 
-        <h2>The embedded game</h2>
+        <h2>The official game</h2>
         <p>
-          Play loads <a href={GAME}>pokesurvivor.com</a> inside this site. Guest progress, cloud
+          Play opens <a href={GAME}>pokesurvivor.com</a>. Guest progress, cloud
           accounts, Google sign-in, and the leaderboard belong to that site. This guide does not
-          receive your game password, your nickname, or your save. If a sign-in popup is blocked,
-          that happens inside the frame. Use the official site when you need the account.
+          receive your game password, your nickname, or your save.
         </p>
 
         <h2>Children</h2>

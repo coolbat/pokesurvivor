@@ -54,7 +54,8 @@ export default async function MovePage({ params }: { params: Promise<{ slug: str
           <p>
             At level {m.maxLvl}, {name} evolves into <b>{evolved}</b> ({m.evo.nameEs}) if you have
             taken <b>{needName(m.evo.needs)}</b> at least once in that run. The gold card is always
-            offered when both conditions are true. The evolution grants {evoBonus(m.kind)}.
+            offered when both conditions are true.
+            {evoBonus(m.kind) ? <> The evolution grants {evoBonus(m.kind)}.</> : null}
           </p>
         ) : (
           <p>{name} is a buff. It does not evolve, and a run will not offer you more than two buff moves.</p>
@@ -76,9 +77,9 @@ export default async function MovePage({ params }: { params: Promise<{ slug: str
       <Faq
         title={`${name} questions`}
         items={[
-          { q: `What type is ${name} in PokéSurvivor?`, a: `${name} deals ${typeLabel([m.type])} damage. The type chart uses ×1.6 for a super-effective hit, ×0.6 for a resist, and ×0.3 where the main games would be immune.` },
+          { q: `What type is ${name} in PokéSurvivor?`, a: m.kind === 'buff' ? `${name} is a ${typeLabel([m.type])} buff. It does not deal damage.` : `${name} deals ${typeLabel([m.type])} damage${m.cat === 'physical' ? ' and is physical, so it uses Attack' : m.cat === 'special' ? ' and is special, so it uses Special Attack' : ''}. The type chart uses ×1.6 for a super-effective hit, ×0.6 for a resist, and ×0.3 where the main games would be immune.` },
           { q: `How does ${name} evolve?`, a: m.evo ? `Reach level ${m.maxLvl} and have picked the ${needName(m.evo.needs)} stat card during the same run. It becomes ${evolved}.` : `${name} does not evolve.` },
-          { q: `Can every Pokémon learn ${name}?`, a: m.type === 'normal' ? `Yes. Normal moves are in every Pokémon's pool.` : `Only Pokémon that have the ${typeLabel([m.type])} type are offered ${name}. Dual types get both of their pools.` },
+          { q: `Can every Pokémon learn ${name}?`, a: `${m.type === 'normal' ? `${name} is Normal, so it is in every Pokémon's level-up pool.` : `${name} is offered on level-up to a Pokémon with the ${typeLabel([m.type])} type. A dual-type gets both of its pools.`}${m.tm ? ' It is also a TM. A species that learns it in the main series can be taught it from the Kecleon Shop, and then it joins that Pokémon\'s cards.' : ''}` },
         ]}
       />
     </>

@@ -6,7 +6,7 @@ import { pageMeta } from '@/lib/seo'
 export const metadata = pageMeta({
   title: 'Terms',
   description:
-    'Terms for the PokéSurvivor fan guide at pokesurvivor.net: a free unofficial companion, with the official game embedded on the Play page.',
+    'Terms for the PokéSurvivor fan guide at pokesurvivor.net: a free unofficial companion. Play opens the official game.',
   path: '/terms/',
 })
 
@@ -25,7 +25,7 @@ export default function TermsPage() {
           Pokémon and the character names are trademarks of their owners.
         </p>
         <p>
-          The Play page embeds <a href={GAME}>pokesurvivor.com</a>. Runs, accounts, and cloud saves
+          Play opens <a href={GAME}>pokesurvivor.com</a>. Runs, accounts, and cloud saves
           happen on that site, under its own rules. This guide does not operate the game.
         </p>
 
@@ -47,12 +47,14 @@ export default function TermsPage() {
           the game and come from{' '}
           <a href="https://github.com/PMDCollab/SpriteCollab">SpriteCollab</a> under CC BY-NC 4.0.
           That license requires credit and does not allow commercial use. Pixelify Sans is used under
-          the SIL Open Font License. The game code is MIT; this guide&apos;s wording is not.
+          the SIL Open Font License. Game code published after 14 October 2026 is PolyForm
+          Noncommercial 1.0.0. Copies through commit b297089 remain MIT. This guide&apos;s wording
+          is separate from both.
         </p>
 
         <h2>Acceptable use</h2>
         <p>
-          Do not attack the site, the embedded game, or other players from here. Do not send malware
+          Do not attack the site, the official game, or other players from here. Do not send malware
           through a shared link. The operator may remove a page or block a request that puts the
           guide or the game at risk.
         </p>
@@ -60,7 +62,7 @@ export default function TermsPage() {
         <h2>Liability</h2>
         <p>
           The guide is free and provided as is. The operator is not liable for a lost run, a missed
-          shiny, a number that went out of date, or anything that happens inside the embedded game.
+          shiny, a number that went out of date, or anything that happens in the official game.
           If a law where you live does not allow that limit, the limit applies only as far as that
           law allows.
         </p>

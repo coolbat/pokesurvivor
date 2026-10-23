@@ -23,6 +23,7 @@ export default function MovesPage() {
       name: moveName(m.id),
       nameEs: m.nameEs,
       kind: KIND_NAME[m.kind] || m.kind,
+      cat: m.cat === 'physical' ? 'Physical' : m.cat === 'special' ? 'Special' : '',
       cd: m.cd ?? null,
       dmg: m.kind === 'buff' ? null : m.dmg ?? null,
       need: m.evo ? needName(m.evo.needs) : null,
@@ -37,9 +38,11 @@ export default function MovesPage() {
         <h1>PokéSurvivor moves</h1>
         <p className="lede">
           PokéSurvivor has {moves.length} moves across 18 types. Only the active slot fires.
-          A Pokémon&apos;s learnset is every move of its types, plus the Normal moves, which everyone
-          can roll. Each damaging move has five levels. At max level it evolves if you have already
-          picked its required stat card in that run.
+          Level-up cards offer every move of that Pokémon&apos;s types, plus the Normal moves.
+          A TM from the Kecleon Shop permanently teaches a move the species learns in the main
+          series, including one outside those types. After it is taught, that move joins the same
+          cards. An untaught off-type move is not offered. Each damaging move has five levels. At
+          max level it evolves if you have already picked its required stat card in that run.
         </p>
       </header>
       <section className="box">
@@ -48,11 +51,17 @@ export default function MovesPage() {
           The four level-up steps depend on the move family: more projectiles, more damage, a shorter
           cooldown, then a capstone. The fifth level is the evolved form, offered as a gold card.
           Ember becomes Fire Blast after Power. Bubble becomes Surf after Sprint. Buffs such as
-          Swords Dance, Agility, Harden, Aqua Ring, and Dragon Dance never evolve. You will not be
+          Swords Dance, Agility, Harden, Aqua Ring, Dragon Dance, and Nasty Plot never evolve. You will not be
           offered more than two buff moves in one run.
         </p>
         <p>
-          The tables list cooldown, base damage, and the stat card. Open a move for the level ladder.
+          A physical move uses Attack. A special move uses Special Attack. Swords Dance and Dragon
+          Dance raise Attack only. Nasty Plot raises Special Attack. On a level-up, a move on the
+          Pokémon&apos;s stronger side is offered twice as often. A single-type Pokémon deals 20% more
+          damage with a move of its own type. That rule is also on the <Link href="/types/">type chart</Link>.
+        </p>
+        <p>
+          The tables list cooldown, base damage, category, and the stat card. Open a move for the level ladder.
           The <Link href="/types/">type chart</Link> decides whether that damage is yellow or grey.
           Which of the six opening moves to learn the game with is on the{' '}
           <Link href="/best-starter/">best starter</Link> page. The stat ranking is the{' '}

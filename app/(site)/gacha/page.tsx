@@ -64,7 +64,7 @@ export default function GachaPage() {
       </section>
       <Faq
         items={[
-          { q: 'Does PokéSurvivor gacha cost real money?', a: 'No. Tickets only come from playing. The official game has no shop.' },
+          { q: 'Does PokéSurvivor gacha cost real money?', a: 'No. Tickets only come from playing. The Kecleon Shop spends PokéCoins, not cash, on Mints, Ability Capsules, and TMs.', href: '/upgrades/#kecleon-shop', hrefLabel: 'Kecleon Shop' },
           { q: 'Is the 5-star pity shared across regions?', a: 'No. Each region banner keeps its own count toward 70.' },
           { q: 'What is a ×10 ticket?', a: 'One ×10 ticket pays for a ten-pull by itself. Ten normal tickets do the same thing. Both versions guarantee an Epic or better.' },
           { q: 'Do duplicate Pokémon do anything?', a: 'They convert to PokéCoins at the rarity rate above. A shiny duplicate triples that. You do not get a second copy of the species.' },
