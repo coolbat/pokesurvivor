@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">PokéSurvivor Guide</title>
+  <desc id="hero-desc">Fan guide for the free browser Pokémon survivor game. The roster in this guide is 966 Pokémon, 29 starters, and 64 moves.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="#f4f8ff" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2c519f"/>
+      <stop offset="1" stop-color="#1a3170"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" rx="28" fill="#050914"/>
+  <rect width="1200" height="400" rx="28" fill="url(#grid)" opacity="0.07"/>
+  <ellipse cx="420" cy="0" rx="460" ry="180" fill="#2c519f" opacity="0.45"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <g id="title-block" transform="translate(56 64)">
+      <g id="mark">
+        <rect width="36" height="36" rx="6" fill="#ffd23f"/>
+        <rect x="4" y="4" width="28" height="28" rx="4" fill="#1a3170"/>
+        <rect x="16" y="9" width="4" height="18" fill="#ffd23f"/>
+        <rect x="9" y="16" width="18" height="4" fill="#ffd23f"/>
+      </g>
+      <text x="48" y="25" fill="#b9cbf0" font-size="18" font-weight="700">Fan guide · October 2026</text>
+      <text x="0" y="108" fill="#ffd23f" font-size="60" font-weight="700">PokéSurvivor</text>
+      <text x="0" y="176" fill="#ffffff" font-size="60" font-weight="700">Guide</text>
+      <text x="0" y="230" fill="#b9cbf0" font-size="22">Look up a starter, a move, or a shiny rate,</text>
+      <text x="0" y="262" fill="#b9cbf0" font-size="22">then play the official game on the same site.</text>
+    </g>
+    <g id="roster" transform="translate(748 52)">
+      <rect x="8" y="8" width="388" height="296" rx="16" fill="#0b1838"/>
+      <rect width="388" height="296" rx="16" fill="url(#panel)" stroke="#f4f8ff" stroke-width="3"/>
+      <text x="28" y="48" fill="#b9cbf0" font-size="16" font-weight="700">IN THIS GUIDE</text>
+      <text x="28" y="112" fill="#ffd23f" font-size="48" font-weight="700">966</text>
+      <text x="168" y="100" fill="#ffffff" font-size="24" font-weight="700">Pokémon</text>
+      <text x="168" y="126" fill="#b9cbf0" font-size="18">nine regions</text>
+      <text x="28" y="184" fill="#ffd23f" font-size="48" font-weight="700">29</text>
+      <text x="168" y="172" fill="#ffffff" font-size="24" font-weight="700">starters</text>
+      <text x="168" y="198" fill="#b9cbf0" font-size="18">quiz can be refused</text>
+      <text x="28" y="256" fill="#ffd23f" font-size="48" font-weight="700">64</text>
+      <text x="168" y="244" fill="#ffffff" font-size="24" font-weight="700">moves</text>
+      <text x="168" y="270" fill="#b9cbf0" font-size="18">59 of them evolve</text>
+    </g>
+  </g>
+</svg>

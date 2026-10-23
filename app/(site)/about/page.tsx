@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Crumbs } from '@/components/Crumbs'
-import { GAME } from '@/lib/constants'
+import { GAME, SITE } from '@/lib/constants'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata = pageMeta({
@@ -17,8 +17,8 @@ export default function AboutPage() {
       <article className="box">
         <h1>About this guide</h1>
         <p>
-          pokesurvivor.net is a fan-written guide for PokéSurvivor, plus a play page that embeds
-          the official game. It is not affiliated with, sponsored, or endorsed by Nintendo, Creatures
+          This guide is published at <a href={SITE}>https://pokesurvivor.net</a>. It is a fan-written
+          guide for PokéSurvivor, plus a play page that embeds the official game. It is not affiliated with, sponsored, or endorsed by Nintendo, Creatures
           Inc., GAME FREAK, The Pokémon Company, or the person who made the game.
         </p>
         <p>
