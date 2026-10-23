@@ -95,7 +95,8 @@ export default function TierListPage() {
           This page ranks three boards for the browser game: the 29 starter partners, the six opening
           moves, and what a shiny is worth. The numbers are the in-game stats for {UPDATED}: HP, speed,
           the co-op multipliers, and the shiny rates. There is no hidden best partner, but the opening
-          move is not a tie, and that is what these tables sort.
+          move is not a tie, and that is what these tables sort. Controls and the first ten minutes
+          are in the <Link href="/guide/">how to play guide</Link>.
         </p>
       </header>
 

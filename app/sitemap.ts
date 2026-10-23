@@ -19,7 +19,7 @@ const QUIZ_UPDATED = new Date('2026-10-13T00:00:00Z')
 const CONTENT_UPDATED = new Date('2026-10-23T00:00:00Z')
 
 const UPDATED_HUBS = new Set([
-  '/', '/play/', '/guide/', '/tier-list/', '/first-upgrades/', '/move-evolutions/',
+  '/', '/play/', '/guide/', '/best-starter/', '/tier-list/', '/first-upgrades/', '/move-evolutions/',
   '/pokedex/', '/moves/', '/types/', '/items/', '/upgrades/', '/gacha/', '/co-op/',
   '/faq/', '/about/', '/privacy/', '/terms/',
 ])

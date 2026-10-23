@@ -24,10 +24,9 @@ export default function GuidePage() {
       <header>
         <h1>How to play PokéSurvivor: beginner tips and strategy</h1>
         <p className="lede">
-          A PokéSurvivor run is a bullet-heaven: your partner attacks on its own, you only steer and
-          pick the active move. This page is the beginner tips and strategy, from the personality quiz
-          to the 15-minute boss. When you want to try a step, open <Link href="/play/">Play PokéSurvivor</Link> and
-          the game is already on the site.
+          This PokeSurvivor guide walks a first run: your partner attacks on its own, and you steer
+          and pick the active move. It goes from the personality quiz to the 15-minute boss. To try
+          a step, open <Link href="/play/">Play</Link> and the official site starts the game.
         </p>
       </header>
       <section className="box">

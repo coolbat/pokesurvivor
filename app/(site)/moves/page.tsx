@@ -65,7 +65,8 @@ export default function MovesPage() {
           The <Link href="/types/">type chart</Link> decides whether that damage is yellow or grey.
           Which of the six opening moves to learn the game with is on the{' '}
           <Link href="/best-starter/">best starter</Link> page. The stat ranking is the{' '}
-          <Link href="/tier-list/">tier list</Link>.
+          <Link href="/tier-list/">tier list</Link>. How a run spends these cards is in the{' '}
+          <Link href="/guide/">how to play guide</Link>.
         </p>
       </section>
       <section className="box" id="best-moves">

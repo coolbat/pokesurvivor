@@ -60,7 +60,8 @@ export default function BestStarterPage() {
           There is no hidden best partner. A new save offers one of 29 starters from an eight-question
           quiz, and you can refuse it. Pick by the opening move. Charmander, Bulbasaur, and Squirtle
           are the three that teach the game: a burning shot, a melee swing, and a piercing shot.
-          Later regions repeat those jobs with different HP and speed.
+          Later regions repeat those jobs with different HP and speed. The rest of a first run is
+          the <Link href="/guide/">beginner guide</Link>.
         </p>
         <p className="row">
           <Link className="btn gold" href="/quiz/">Take the starter quiz</Link>
